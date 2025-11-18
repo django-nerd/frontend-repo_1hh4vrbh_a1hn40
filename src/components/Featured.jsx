@@ -27,13 +27,14 @@ export default function Featured() {
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.5, delay: idx * 0.06 }}
               className="group rounded-2xl overflow-hidden bg-white ring-1 ring-slate-200 hover:shadow-xl"
+            }
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img src={item.img} alt={item.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
               </div>
               <div className="p-4 flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-pink-600 font-medium">{item.tag}</p>
+                  <p className="text-sm text-[#03bfa4] font-medium">{item.tag}</p>
                   <h3 className="text-lg font-semibold text-slate-900">{item.name}</h3>
                 </div>
                 <span className="text-slate-800 font-medium">${item.price.toFixed(2)}</span>

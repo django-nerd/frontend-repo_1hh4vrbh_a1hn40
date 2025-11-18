@@ -7,7 +7,7 @@ export default function Navbar() {
 
   const linkClasses = ({ isActive }) =>
     `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-      isActive ? 'text-pink-600' : 'text-slate-700 hover:text-pink-600'
+      isActive ? 'text-[#03bfa4]' : 'text-slate-700 hover:text-[#03bfa4]'
     }`
 
   return (
@@ -15,14 +15,15 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-pink-500 to-rose-500 shadow-md" />
+            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-[#03bfa4] to-[#029e8a] shadow-md" />
             <span className="font-semibold tracking-tight text-slate-800">Scooply</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-4">
             <NavLink to="/" className={linkClasses}>Home</NavLink>
             <NavLink to="/products" className={linkClasses}>Flavors</NavLink>
-            <a href="#about" className="px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-pink-600">About</a>
+            <NavLink to="/about" className={linkClasses}>About</NavLink>
+            <NavLink to="/contact" className={linkClasses}>Contact</NavLink>
           </nav>
 
           <button
@@ -41,7 +42,8 @@ export default function Navbar() {
             <NavLink to="/" className={linkClasses} onClick={() => setOpen(false)}>Home</NavLink>
             <div />
             <NavLink to="/products" className={linkClasses} onClick={() => setOpen(false)}>Flavors</NavLink>
-            <a href="#about" className="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-pink-600" onClick={() => setOpen(false)}>About</a>
+            <NavLink to="/about" className={linkClasses} onClick={() => setOpen(false)}>About</NavLink>
+            <NavLink to="/contact" className={linkClasses} onClick={() => setOpen(false)}>Contact</NavLink>
           </div>
         </div>
       )}

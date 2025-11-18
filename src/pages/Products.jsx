@@ -1,4 +1,6 @@
 import { useMemo, useState } from 'react'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 const ALL_PRODUCTS = [
   { id: 1, name: 'Strawberry Silk', price: 5.5, type: 'Fruit', dairy: 'Dairy', tags: ['Seasonal'], img: 'https://images.unsplash.com/photo-1488900128323-21503983a07e?q=80&w=1200&auto=format&fit=crop' },
@@ -33,7 +35,8 @@ export default function Products() {
   }, [query, type, dairy, price])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-rose-50/40">
+    <div className="min-h-screen bg-gradient-to-b from-white to-emerald-50/40">
+      <Navbar />
       <div className="pt-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-slate-900">All flavors</h1>
@@ -48,20 +51,20 @@ export default function Products() {
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 placeholder="Try ‘Matcha’"
-                className="w-full rounded-lg border-slate-300 focus:border-pink-400 focus:ring-pink-400"
+                className="w-full rounded-lg border-slate-300 focus:border-[#03bfa4] focus:ring-[#03bfa4]"
               />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">Type</label>
-              <select value={type} onChange={e => setType(e.target.value)} className="w-full rounded-lg border-slate-300 focus:border-pink-400 focus:ring-pink-400">
+              <select value={type} onChange={e => setType(e.target.value)} className="w-full rounded-lg border-slate-300 focus:border-[#03bfa4] focus:ring-[#03bfa4]">
                 {types.map(t => <option key={t}>{t}</option>)}
               </select>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">Dairy</label>
-              <select value={dairy} onChange={e => setDairy(e.target.value)} className="w-full rounded-lg border-slate-300 focus:border-pink-400 focus:ring-pink-400">
+              <select value={dairy} onChange={e => setDairy(e.target.value)} className="w-full rounded-lg border-slate-300 focus:border-[#03bfa4] focus:ring-[#03bfa4]">
                 {dairyOpts.map(d => <option key={d}>{d}</option>)}
               </select>
             </div>
@@ -69,8 +72,8 @@ export default function Products() {
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">Price</label>
               <div className="flex items-center gap-3">
-                <input type="range" min="0" max="7" step="0.1" value={price[0]} onChange={e => setPrice([parseFloat(e.target.value), price[1]])} className="w-full" />
-                <input type="range" min="0" max="7" step="0.1" value={price[1]} onChange={e => setPrice([price[0], parseFloat(e.target.value)])} className="w-full" />
+                <input type="range" min="0" max="7" step="0.1" value={price[0]} onChange={e => setPrice([parseFloat(e.target.value), price[1]])} className="w-full accent-[#03bfa4]" />
+                <input type="range" min="0" max="7" step="0.1" value={price[1]} onChange={e => setPrice([price[0], parseFloat(e.target.value)])} className="w-full accent-[#03bfa4]" />
               </div>
               <p className="text-sm text-slate-600 mt-1">${price[0].toFixed(1)} — ${price[1].toFixed(1)}</p>
             </div>
@@ -97,6 +100,7 @@ export default function Products() {
           </main>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
